@@ -1,6 +1,8 @@
 const axios = require("axios");
 const JSZip = require("jszip");
 const fs = require("fs");
+const { resolve } = require("path");
+const { rejects } = require("assert");
 
 /**
  * Downloads files from a GitHub folder URL and creates a ZIP archive.
@@ -8,7 +10,7 @@ const fs = require("fs");
  * @param {string} [folderName="downloaded-folder"] - The name for the downloaded folder and ZIP file.
  * @param {Function} [progress=() => {}] - A callback function to track download progress.
  * @param {string} [Path="./"] - The path where the ZIP file should be saved. Should end with a slash (backslash on Windows).
- * @returns {Promise<void>} - A Promise that resolves once the ZIP file has been created successfully.
+ * @returns {Promise<string>} - A Promise that resolves once the ZIP file has been created successfully.
  * @throws {Error} Throws an error if there is an issue fetching GitHub repository contents or creating the ZIP file.
  */
 
@@ -71,14 +73,14 @@ const DownloadGithubFolder = async (
           const content = await zip.generateAsync({ type: "nodebuffer" });
           const fullPath = `${Path}${folderName}`;
           fs.writeFileSync(`${fullPath}.zip`, content);
-          console.log(`${folderName}.zip has been created successfully.`);
+          resolve(`${folderName}.zip has been created successfully.`);
         } catch (error) {
-          console.error("Error fetching GitHub repository contents:", error);
+          rejects(error);
         }
       }
     })
     .catch((e) => {
-      console.error("Error converting URL:", e);
+      rejects(e);
     });
 };
 

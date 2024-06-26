@@ -14,10 +14,10 @@ npm i github-folder-downloader
 const DownloadGithubFolder = require("github-folder-downloader");
 
 DownloadGithubFolder(
-  "https://api.github.com/repos/AhmedHanye/Security-Plus/contents/Extension/dist",
-  "downloaded-folder",
-  (p) => {
-    console.log(p);
-  }
+  "https://github.com/AhmedHanye/Security-Plus/tree/master/Extension/dist",
+  "Extension",
+  (progress) => console.log(progress),
+  "./"
 );
+
 ```

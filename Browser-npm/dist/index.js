@@ -20,6 +20,7 @@ const jszip_1 = __importDefault(require("jszip"));
  * @param folderUrl URL of the GitHub repository folder.
  * @param folderName Name of the ZIP file to be generated.
  * @param progress Optional callback function to report download progress.
+ * @returns A promise that resolves to a message indicating the download status.
  */
 const convert_url = (url) => {
     return new Promise((resolve, reject) => {

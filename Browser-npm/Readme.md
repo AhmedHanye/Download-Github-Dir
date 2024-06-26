@@ -13,11 +13,15 @@ npm i browser-github-folder-downloader
 ```bash
 import { DownloadGithubFolder } from "browser-github-folder-downloader";
 
-DownloadGithubFolder(
-  "https://api.github.com/repos/AhmedHanye/Security-Plus/contents/Extension/dist",
-  "downloaded-folder",
-  (p) => {
-    console.log(p);
-  }
-);
+const urlParts = url.split("/");
+const folderName = urlParts[urlParts.length - 1];
+DownloadGithubFolder(url, folderName, (line) => {
+  console.log(line);
+})
+  .then(() => {
+    console.log("Downloaded");
+  })
+  .catch((e) => {
+    console.error(e);
+});
 ```
