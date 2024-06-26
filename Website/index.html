@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="src/assets/github.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Easily download directories from Github with our tool. Quick, efficient, and user-friendly. Created by Ahmed Hanye." />
+    <meta name="author" content="Ahmed Hanye" />
+    <meta name="keywords" content="Download Github Directory, Github, Download, Repository, Ahmed Hanye" />
+    <title>Download Github Directory - Quick and Easy</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Download Github Directory - Quick and Easy" />
+    <meta property="og:description" content="Easily download directories from Github with our tool. Quick, efficient, and user-friendly. Created by Ahmed Hanye." />
+    <meta property="og:image" content="src/assets/github.webp" />
+    <meta property="og:url" content="https://yourwebsiteurl.com" />
+    <meta property="og:site_name" content="Download Github Directory" />
+    <!-- Dark Mode -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const theme = localStorage.getItem("theme") === "true";
+        document.documentElement.classList.add(theme ? "dark" : "light");
+      });
+    </script>
+  </head>
+  
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
